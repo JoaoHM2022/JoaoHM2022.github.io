@@ -19,4 +19,8 @@ Funcionalidades:
 * Campo para criação de categorias de gastos e registro de qualquer banco.
 
 
+OBS:
+
 Todas as categorias de gastos podem ser criadas de maneira personalizada, não há bancos pré-selecionados na lista, também são adicionadas por cada pessoa de maneira personalizada.
+
+Funciona tanto em Desktop quanto para Mobile.
