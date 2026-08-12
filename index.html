@@ -9,7 +9,6 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-/* ── THEMES ── */
 :root,[data-theme="light"]{
   --bg:      #F7F4EE;
   --bg2:     #EDE9E0;
@@ -55,7 +54,6 @@ html,body{
 }
 body{padding:0;}
 
-/* ── LAYOUT ── */
 .shell{
   display:grid;
   grid-template-columns:210px 1fr;
@@ -65,7 +63,6 @@ body{padding:0;}
   margin:0 auto;
 }
 
-/* ── SIDEBAR ── */
 .sidebar{
   grid-row:1/3;
   border-right:1px solid var(--line);
@@ -140,14 +137,12 @@ body{padding:0;}
 .nav-btn.active{color:var(--ink);font-weight:600;background:none;}
 .nav-btn.active::before{background:var(--ink);width:5px;height:5px;}
 
-/* ── SIDEBAR FOOTER ── */
 .sidebar-footer{
   padding:16px 26px 0;
   border-top:1px solid var(--line);
   display:flex;flex-direction:column;gap:5px;
 }
 
-/* ── THEME TOGGLE ── */
 .theme-toggle{
   display:flex;align-items:center;justify-content:space-between;
   padding:8px 10px;
@@ -189,7 +184,6 @@ body{padding:0;}
 [data-theme="dark"] .action-btn.danger{border-color:rgba(224,92,75,0.2);}
 [data-theme="dark"] .action-btn.danger:hover{background:rgba(224,92,75,0.07);}
 
-/* ── TOPBAR ── */
 .topbar{
   padding:28px 44px 22px;
   border-bottom:1px solid var(--line);
@@ -212,14 +206,12 @@ body{padding:0;}
 }
 .topbar-add:hover{opacity:0.85;}
 
-/* ── MAIN ── */
 .main{
   padding:36px 44px 56px;
   overflow-y:auto;
   background:var(--bg);
   transition:background 0.25s;
 }
-/* ── TAB TRANSITIONS ── */
 .tab{display:none;opacity:0;transform:translateY(12px);}
 .tab.active{
   display:block;
@@ -230,7 +222,6 @@ body{padding:0;}
   to{opacity:1;transform:translateY(0);}
 }
 
-/* ── STAT ROW ── */
 .stat-row{
   display:grid;grid-template-columns:repeat(3,1fr);
   border:1px solid var(--line);border-radius:12px;
@@ -255,7 +246,6 @@ body{padding:0;}
 .stat-val.warn{color:var(--amber);}
 .stat-val.bad{color:var(--red);}
 
-/* ── PROGRESS ── */
 .prog-block{margin-bottom:28px;}
 .prog-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;}
 .prog-label{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);}
@@ -264,7 +254,6 @@ body{padding:0;}
 .prog-fill{height:100%;transition:width 0.5s cubic-bezier(.4,0,.2,1);}
 .prog-sub{margin-top:7px;font-size:11px;color:var(--ink4);}
 
-/* ── SECTION HEAD ── */
 .sec-head{
   display:flex;align-items:center;justify-content:space-between;
   margin-bottom:14px;padding-bottom:9px;border-bottom:1px solid var(--line);
@@ -277,7 +266,6 @@ body{padding:0;}
 }
 .sec-action:hover{color:var(--ink);background:var(--line2);}
 
-/* ── TRANSACTIONS ── */
 .tx-list{display:flex;flex-direction:column;}
 .tx-item{
   display:grid;grid-template-columns:32px 1fr auto auto;
@@ -318,7 +306,6 @@ body{padding:0;}
 }
 .add-tx-btn:hover{color:var(--ink);}
 
-/* ── BANK CARDS ── */
 .card-banks{
   display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
   border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:28px;
@@ -342,7 +329,6 @@ body{padding:0;}
 }
 .bank-limit{font-size:10px;color:var(--ink4);margin-bottom:10px;line-height:1.4;}
 
-/* ── CONFIG BLOCK ── */
 .config-block{
   border:1px solid var(--line);border-radius:12px;padding:22px;margin-bottom:28px;
 }
@@ -367,7 +353,6 @@ input:focus,select:focus{border-color:var(--ink);}
 input::placeholder{color:var(--ink5);}
 select option{background:var(--bg);color:var(--ink);}
 
-/* ── CATEGORIES ── */
 .cat-grid{
   display:grid;grid-template-columns:1fr 1fr;
   border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:22px;
@@ -392,7 +377,6 @@ select option{background:var(--bg);color:var(--ink);}
 }
 .chart-block{border:1px solid var(--line);border-radius:12px;padding:22px;}
 
-/* ── HERO BLOCK ── */
 .hero-block{
   border:1px solid var(--line);border-radius:12px;padding:28px 26px;margin-bottom:18px;
 }
@@ -414,7 +398,6 @@ select option{background:var(--bg);color:var(--ink);}
 .status-warn{background:rgba(184,134,11,0.1);color:var(--amber);border:1px solid rgba(184,134,11,0.2);}
 .status-bad{background:rgba(192,57,43,0.1);color:var(--red);border:1px solid rgba(192,57,43,0.2);}
 
-/* ── SLIDER ── */
 .slider-block{margin-bottom:10px;}
 .slider-row{display:flex;align-items:center;gap:14px;}
 input[type=range]{
@@ -438,7 +421,6 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
   font-size:9px;color:var(--ink5);letter-spacing:0.08em;margin-top:5px;
 }
 
-/* ── HISTORY ── */
 .history-block{border:1px solid var(--line);border-radius:12px;overflow:hidden;}
 .history-head{
   padding:11px 15px;border-bottom:1px solid var(--line);
@@ -455,7 +437,6 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
 .history-item span:last-child{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--ink);}
 .history-empty{padding:18px 15px;font-size:10px;color:var(--ink5);text-align:center;letter-spacing:0.08em;text-transform:uppercase;}
 
-/* ── PROJ ── */
 .proj-row{
   display:flex;justify-content:space-between;align-items:baseline;
   padding:14px 0;border-top:1px solid var(--line);margin-top:6px;
@@ -468,7 +449,6 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
 .inv-bar-labels{display:flex;justify-content:space-between;margin-top:5px;}
 .inv-bar-labels span{font-size:9px;color:var(--ink4);font-weight:500;letter-spacing:0.06em;}
 
-/* ── MODAL ── */
 .modal-overlay{
   position:fixed;inset:0;
   background:var(--modal-bg);
@@ -506,7 +486,6 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
 .btn-confirm:hover{opacity:0.85;}
 .btn-confirm:active{transform:scale(0.98);}
 
-/* ── CUSTOM ITEMS LIST (categories & banks) ── */
 .custom-list{
   display:flex;flex-direction:column;
   border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:20px;
@@ -535,7 +514,6 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
   padding:2px 7px;border-radius:12px;flex-shrink:0;
 }
 
-/* color picker inline */
 .color-preview{
   width:22px;height:22px;border-radius:50%;
   flex-shrink:0;cursor:pointer;border:2px solid var(--line);
@@ -546,13 +524,6 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
   width:100%;height:100%;padding:0;border:none;
 }
 
-/* ── DATA FOOTER (mobile) ── */
-.data-footer{
-  margin-top:44px;padding-top:18px;border-top:1px solid var(--line);
-  display:flex;gap:8px;flex-wrap:wrap;
-}
-
-/* ── FAB (mobile floating action button) ── */
 .fab{
   display:none;
   position:fixed;
@@ -572,8 +543,8 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
 }
 .fab:active{transform:scale(0.92);}
 
-/* ── TOUCH IMPROVEMENTS ── */
-/* Larger tap targets on mobile */
+.mob-only-config { display: none; }
+
 @media(max-width:700px){
   .fab{display:flex;}
   .topbar-add{display:none;}
@@ -588,9 +559,9 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
   .cat-card:hover{background:inherit;}
   .history-item:hover{background:inherit;}
   .custom-item:hover{background:inherit;}
+  .mob-only-config { display: block; }
 }
 
-/* ── SWIPE INDICATOR ── */
 .swipe-hint{
   display:none;
   text-align:center;
@@ -604,7 +575,6 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
   .swipe-hint{display:block;}
 }
 
-/* ── MOBILE BOTTOM NAV ── */
 .mobile-bottom-nav{
   display:none;
   position:fixed;
@@ -641,7 +611,6 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
   margin-top:1px;
 }
 
-/* ── EMOJI PICKER ── */
 .emoji-picker{
   margin-top:10px;
   border:1px solid var(--line);border-radius:12px;overflow:hidden;
@@ -678,8 +647,6 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
 .emoji-selected-preview span:first-child{font-size:20px;}
 .emoji-selected-preview span:last-child{font-size:11px;color:var(--ink3);}
 
-
-/* ── RESPONSIVE ── */
 @media(max-width:700px){
   .shell{grid-template-columns:1fr;grid-template-rows:auto auto 1fr;}
   .sidebar{
@@ -707,7 +674,6 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
   .cat-card:nth-last-child(-n+2){border-bottom:1px solid var(--line);}
   .cat-card:last-child{border-bottom:none;}
   .form-row,.modal-form-row{flex-direction:column;}
-  .data-footer{flex-direction:column;}
 }
 </style>
 </head>
@@ -715,7 +681,6 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
 
 <div class="shell">
 
-  <!-- ── SIDEBAR ── -->
   <aside class="sidebar">
     <div class="sidebar-brand">
       <span class="brand-name">Gastos</span>
@@ -752,16 +717,13 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
     </div>
   </aside>
 
-  <!-- ── TOPBAR ── -->
   <header class="topbar">
     <h1 class="topbar-title" id="topbar-title">Visão geral</h1>
     <button class="topbar-add" onclick="openModal()">+ Nova transação</button>
   </header>
 
-  <!-- ── MAIN ── -->
   <main class="main">
 
-    <!-- VISÃO GERAL -->
     <div class="tab active" id="tab-visao">
       <div class="stat-row">
         <div class="stat-cell">
@@ -778,14 +740,12 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
         </div>
       </div>
       
-      <!-- Container das barras de progresso que será preenchido via JS -->
       <div id="prog-container"></div>
       
       <div class="sec-head" style="margin-top:28px;"><span class="sec-title">Últimas transações</span></div>
       <div class="tx-list" id="tx-visao"></div>
     </div>
 
-    <!-- CARTÕES -->
     <div class="tab" id="tab-cartoes">
       <div class="card-banks" id="bank-cards-display"></div>
       <div class="config-block">
@@ -796,7 +756,6 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
       <div class="tx-list" id="tx-cartoes"></div>
     </div>
 
-    <!-- CATEGORIAS -->
     <div class="tab" id="tab-categorias">
       <div class="cat-grid" id="cat-grid"></div>
       <div class="chart-block">
@@ -806,7 +765,6 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
       </div>
     </div>
 
-    <!-- META -->
     <div class="tab" id="tab-meta">
       <div class="hero-block">
         <div class="hero-lbl">Soma total das metas</div>
@@ -834,7 +792,6 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
       </div>
     </div>
 
-    <!-- INVESTIMENTO -->
     <div class="tab" id="tab-investimento">
       <div class="hero-block">
         <div class="hero-lbl">Valor a investir este mês</div>
@@ -875,37 +832,41 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
       </div>
     </div>
 
-    <!-- CONFIGURAÇÕES -->
     <div class="tab" id="tab-config">
 
-      <!-- Categorias -->
       <div class="sec-head">
         <span class="sec-title">Categorias de gastos</span>
         <button class="sec-action" onclick="openCatModal()">+ Nova categoria</button>
       </div>
       <div class="custom-list" id="cat-config-list"></div>
 
-      <!-- Bancos -->
       <div class="sec-head" style="margin-top:24px;">
         <span class="sec-title">Cartões e bancos</span>
         <button class="sec-action" onclick="openBankModal()">+ Novo cartão</button>
       </div>
       <div class="custom-list" id="bank-config-list"></div>
 
-    </div>
+      <div class="mob-only-config">
+        <div class="sec-head" style="margin-top:24px;">
+          <span class="sec-title">Sistema</span>
+        </div>
+        <div class="config-block" style="display:flex; flex-direction:column; gap:10px; margin-bottom:0;">
+          <div class="theme-toggle" onclick="toggleTheme()" style="margin-bottom:6px;">
+            <span class="theme-toggle-label" id="theme-label-mob">Modo claro</span>
+            <div class="theme-pip"></div>
+          </div>
+          <button class="action-btn" onclick="exportData()" style="text-align:center;">&#8659; Baixar backup</button>
+          <button class="action-btn" onclick="document.getElementById('import-file-m').click()" style="text-align:center;">&#8657; Carregar backup</button>
+          <button class="action-btn danger" onclick="clearAllData()" style="text-align:center;">&#215; Zerar tudo</button>
+          <input type="file" id="import-file-m" style="display:none" accept=".json" onchange="importData(event)">
+        </div>
+      </div>
 
-    <!-- DATA FOOTER mobile -->
-    <div class="data-footer" id="data-footer-mobile" style="display:none">
-      <button class="btn-cancel" onclick="exportData()">&#8659; Backup</button>
-      <button class="btn-cancel" onclick="document.getElementById('import-file-m').click()">&#8657; Carregar</button>
-      <button class="btn-cancel" style="color:var(--red)" onclick="clearAllData()">&#215; Zerar</button>
-      <input type="file" id="import-file-m" style="display:none" accept=".json" onchange="importData(event)">
     </div>
 
   </main>
 </div>
 
-<!-- MODAL: TRANSAÇÃO -->
 <div class="modal-overlay" id="modal" style="display:none">
   <div class="modal-box">
     <div class="modal-title">Nova transação</div>
@@ -934,7 +895,6 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
   </div>
 </div>
 
-<!-- MODAL: NOVA CATEGORIA -->
 <div class="modal-overlay" id="modal-cat" style="display:none">
   <div class="modal-box" style="width:460px">
     <div class="modal-title">Nova categoria</div>
@@ -973,7 +933,6 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
   </div>
 </div>
 
-<!-- MODAL: NOVO BANCO -->
 <div class="modal-overlay" id="modal-bank" style="display:none">
   <div class="modal-box">
     <div class="modal-title">Novo cartão / banco</div>
@@ -1003,10 +962,8 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
   </div>
 </div>
 
-<!-- FAB mobile -->
 <button class="fab" onclick="openModal()" aria-label="Nova transação">+</button>
 
-<!-- Mobile bottom nav -->
 <nav class="mobile-bottom-nav" id="mobile-nav">
   <button class="mob-nav-btn active" onclick="switchTabMob('visao',this)">
     <span class="icon">◎</span><span>Visão</span><div class="mob-dot"></div>
@@ -1030,11 +987,9 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
-/* ── CONSTANTS ── */
 const MONTHS=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
 const TAB_TITLES={visao:'Visão geral',cartoes:'Cartões',categorias:'Categorias',meta:'Meta',investimento:'Investimento',config:'Configurações'};
 
-/* ── STATE ── */
 const now=new Date();
 let curMonth=now.getMonth(), curYear=now.getFullYear();
 let data={};
@@ -1044,7 +999,6 @@ let bankLimits={};
 let catChartInst=null;
 let darkMode=false;
 
-/* ── UTILS ── */
 function key(y,m){return `${y}-${m}`;}
 function getMonthData(){
   const k=key(curYear,curMonth);
@@ -1071,19 +1025,25 @@ function fmt(v){
 }
 function slugify(s){return s.toLowerCase().replace(/\s+/g,'_').replace(/[^a-z0-9_]/g,'')+'_'+Date.now();}
 
-/* ── THEME ── */
 function toggleTheme(){
   darkMode=!darkMode;
   document.documentElement.setAttribute('data-theme',darkMode?'dark':'light');
   document.getElementById('theme-label').textContent=darkMode?'Modo escuro':'Modo claro';
+  const mobLbl = document.getElementById('theme-label-mob');
+  if(mobLbl) mobLbl.textContent = darkMode?'Modo escuro':'Modo claro';
   localStorage.setItem('gastos_theme',darkMode?'dark':'light');
 }
 function loadTheme(){
   const t=localStorage.getItem('gastos_theme');
-  if(t==='dark'){darkMode=true;document.documentElement.setAttribute('data-theme','dark');document.getElementById('theme-label').textContent='Modo escuro';}
+  if(t==='dark'){
+    darkMode=true;
+    document.documentElement.setAttribute('data-theme','dark');
+    document.getElementById('theme-label').textContent='Modo escuro';
+    const mobLbl = document.getElementById('theme-label-mob');
+    if(mobLbl) mobLbl.textContent = 'Modo escuro';
+  }
 }
 
-/* ── NAVIGATION ── */
 const TAB_ORDER_SYNC=['visao','cartoes','categorias','meta','investimento','config'];
 function switchTab(id){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
@@ -1110,12 +1070,10 @@ function changeMonth(d){
 }
 function renderMonthLabel(){document.getElementById('monthLabel').textContent=MONTHS[curMonth]+' '+curYear;}
 
-/* ── TOTALS ── */
 function totalGasto(){return getMonthData().txs.reduce((s,t)=>s+t.val,0);}
 function totalPorBanco(b){return getMonthData().txs.filter(t=>t.bank===b).reduce((s,t)=>s+t.val,0);}
 function totalPorCat(c){return getMonthData().txs.filter(t=>t.cat===c).reduce((s,t)=>s+t.val,0);}
 
-/* ── METRICS ── */
 function renderMetrics(){
   const md=getMonthData(), total=totalGasto();
   document.getElementById('m-total').textContent=fmt(total);
@@ -1184,7 +1142,6 @@ function renderMetrics(){
   document.getElementById('m-invest').textContent = fmt(md.inv);
 }
 
-/* ── TX LIST ── */
 function renderTxList(containerId,limit){
   const txs=[...getMonthData().txs].reverse().slice(0,limit||999);
   const el=document.getElementById(containerId);
@@ -1207,7 +1164,6 @@ function renderTxList(containerId,limit){
   }).join('');
 }
 
-/* ── BANK CARDS (dynamic) ── */
 function renderBankCards(){
   const container=document.getElementById('bank-cards-display');
   const limForm=document.getElementById('bank-limits-form');
@@ -1232,7 +1188,6 @@ function renderBankCards(){
 function updateLimit(id,v){bankLimits[id]=+v||0;saveData();renderBankCards();}
 function renderCartoes(){renderBankCards();renderTxList('tx-cartoes');}
 
-/* ── CATEGORIES ── */
 function renderCats(){
   const total=totalGasto()||1;
   document.getElementById('cat-grid').innerHTML=Object.entries(CATS).map(([k,c])=>{
@@ -1260,7 +1215,6 @@ function renderCatChart(){
   });
 }
 
-/* ── CONFIG LISTS ── */
 function renderCatConfigList(){
   const el=document.getElementById('cat-config-list');
   el.innerHTML=Object.entries(CATS).map(([k,c])=>`
@@ -1297,7 +1251,6 @@ function deleteBank(k){
   delete BANKS[k]; delete bankLimits[k]; saveData(); renderAll(); renderBankConfigList();
 }
 
-/* ── TX MODAL ── */
 function populateSelects(){
   const mBank=document.getElementById('m-bank');
   const mCat=document.getElementById('m-cat');
@@ -1335,7 +1288,6 @@ function deleteTx(id){
   saveData();renderAll();
 }
 
-/* ── EMOJI PICKER DATA ── */
 const EMOJI_CATS={
   'Comida':     ['🍔','🍕','🍣','🍜','🍱','🌮','🥗','🍩','☕','🧃','🥤','🍺','🥩','🥦','🛒'],
   'Lazer':      ['🎮','🎬','🎵','🎸','📚','⚽','🏀','🎯','🎲','🧩','🏖','✈️','🎡','🎪','🎭'],
@@ -1377,7 +1329,6 @@ function selectEmojiManual(v){
   buildEmojiPicker();
 }
 
-/* ── CAT MODAL ── */
 function openCatModal(){
   document.getElementById('nc-name').value='';
   document.getElementById('nc-icon-manual').value='';
@@ -1406,7 +1357,6 @@ document.getElementById('nc-color').addEventListener('input',function(){
   document.getElementById('nc-color-hex').textContent=this.value;
 });
 
-/* ── BANK MODAL ── */
 function openBankModal(){
   document.getElementById('nb-name').value='';
   document.getElementById('nb-limit').value='';
@@ -1432,7 +1382,6 @@ document.getElementById('nb-color').addEventListener('input',function(){
   document.getElementById('nb-color-hex').textContent=this.value;
 });
 
-/* ── META ── */
 function renderMeta(){
   const md=getMonthData(), total=totalGasto();
   document.getElementById('meta-display').textContent=fmt(md.meta);
@@ -1444,7 +1393,7 @@ function renderMeta(){
   } else {
     listEl.style.border = '1px solid var(--line)';
     listEl.innerHTML = md.metaCats.map(c => {
-      if (!c.catKey) return ''; // Skip empty legacy in list, they don't have categories linked
+      if (!c.catKey) return '';
 
       const cat = CATS[c.catKey] || {label: 'Excluída', icon: '❓'};
       const spent = totalPorCat(c.catKey);
@@ -1521,7 +1470,6 @@ function deleteMetaCat(id){
   renderAll();
 }
 
-/* ── INV ── */
 function renderInv(){
   const md=getMonthData();
   document.getElementById('inv-display').textContent=fmt(md.inv);
@@ -1540,7 +1488,6 @@ function updateInvSub(){
   document.getElementById('inv-pct-bar').style.width=Math.min(100,pct)+'%';
 }
 
-/* ── HISTORY ── */
 function renderHistory(){
   const el=document.getElementById('meta-history');
   const entries=Object.entries(data).filter(([k,v])=>v.meta>0).slice(-6).reverse();
@@ -1554,7 +1501,6 @@ function renderInvHistory(){
   el.innerHTML=entries.map(([k,v])=>{const[y,m]=k.split('-');return`<div class="history-item"><span>${MONTHS[+m]} ${y}</span><span>${fmt(v.inv)}</span></div>`;}).join('');
 }
 
-/* ── RENDER ALL ── */
 function renderAll(){
   populateSelects();
   renderMonthLabel();renderMetrics();
@@ -1562,7 +1508,6 @@ function renderAll(){
   renderCats();renderMeta();renderInv();
 }
 
-/* ── PERSISTENCE ── */
 function saveData(){
   localStorage.setItem('appMeusGastos',JSON.stringify({data,CATS,BANKS,bankLimits}));
 }
@@ -1597,7 +1542,6 @@ function importData(event){
       const p=JSON.parse(e.target.result);
       if(p.data) {
         data=p.data;
-        // Navega automaticamente para o mês mais recente encontrado no backup
         const keys = Object.keys(data);
         if(keys.length > 0){
           const latest = keys.sort((a,b)=>{
@@ -1618,9 +1562,7 @@ function importData(event){
   reader.readAsText(file);event.target.value='';
 }
 
-/* ── MOBILE NAV ── */
 function switchTabMob(id, btn){
-  // Reuse main switchTab logic but update mobile nav state
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.mob-nav-btn').forEach(b=>b.classList.remove('active'));
@@ -1633,7 +1575,6 @@ function switchTabMob(id, btn){
   document.querySelector('.main').scrollTo({top:0,behavior:'smooth'});
 }
 
-/* ── SWIPE BETWEEN TABS ── */
 (function(){
   const TAB_ORDER=['visao','cartoes','categorias','meta','investimento','config'];
   let tx0=0, ty0=0, dragging=false;
@@ -1663,11 +1604,10 @@ function switchTabMob(id, btn){
     dragging=false;
     const dx=e.changedTouches[0].clientX - tx0;
     const dy=e.changedTouches[0].clientY - ty0;
-    // Only treat as horizontal swipe if dx dominates and is significant
     if(Math.abs(dx)>60 && Math.abs(dx)>Math.abs(dy)*1.5){
       const idx=currentTabIndex();
-      if(dx<0) goToIndex(idx+1); // swipe left → next
-      else      goToIndex(idx-1); // swipe right → prev
+      if(dx<0) goToIndex(idx+1);
+      else      goToIndex(idx-1); 
     }
   },{passive:true});
 })();
