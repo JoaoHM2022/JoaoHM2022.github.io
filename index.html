@@ -731,12 +731,26 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
           <div class="stat-val" id="m-total">R$ 0</div>
         </div>
         <div class="stat-cell">
-          <div class="stat-lbl">Total Restante (Metas)</div>
-          <div class="stat-val" id="m-restante">R$ 0</div>
+          <div class="stat-lbl">Renda mensal</div>
+          <div class="stat-val" id="m-renda">R$ 0</div>
         </div>
         <div class="stat-cell">
-          <div class="stat-lbl">A investir</div>
-          <div class="stat-val ok" id="m-invest">R$ 0</div>
+          <div class="stat-lbl">Saldo disponível</div>
+          <div class="stat-val ok" id="m-saldo">R$ 0</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-lbl">Comprometido</div>
+          <div class="stat-val" id="m-pct">0%</div>
+        </div>
+      </div>
+
+      <div class="config-block">
+        <span class="sec-title">Quanto você tem disponível este mês?</span>
+        <div class="form-row" style="align-items:flex-end;">
+          <div class="form-field">
+            <label>Renda mensal (R$)</label>
+            <input type="number" id="renda-main-inp" min="0" step="0.01" placeholder="ex: 5000" oninput="updateRenda(this.value)"/>
+          </div>
         </div>
       </div>
       
@@ -822,7 +836,7 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.3);}
           </div>
           <div class="form-field">
             <label>Renda mensal</label>
-            <input type="number" id="renda-inp" placeholder="ex: 5000" oninput="updateInvSub()"/>
+            <input type="number" id="renda-inp" min="0" step="0.01" placeholder="ex: 5000" oninput="updateRenda(this.value)"/>
           </div>
         </div>
       </div>
@@ -1011,10 +1025,12 @@ function getMonthData(){
       txs:[],
       meta: prevData ? prevData.meta : 0,
       metaCats: prevData && prevData.metaCats ? JSON.parse(JSON.stringify(prevData.metaCats)) : [],
-      inv: prevData ? prevData.inv : 0
+      inv: prevData ? prevData.inv : 0,
+      renda: prevData ? (prevData.renda || 0) : 0
     };
   }
   if (!data[k].metaCats) data[k].metaCats = [];
+  if (typeof data[k].renda !== 'number') data[k].renda = Number(data[k].renda) || 0;
   data[k].meta = data[k].metaCats.reduce((s, c) => s + c.val, 0);
   return data[k];
 }
@@ -1074,9 +1090,25 @@ function totalGasto(){return getMonthData().txs.reduce((s,t)=>s+t.val,0);}
 function totalPorBanco(b){return getMonthData().txs.filter(t=>t.bank===b).reduce((s,t)=>s+t.val,0);}
 function totalPorCat(c){return getMonthData().txs.filter(t=>t.cat===c).reduce((s,t)=>s+t.val,0);}
 
+function updateRenda(v){
+  getMonthData().renda=Math.max(0,+v||0);
+  saveData();
+  renderMetrics();
+  const rendaInput=document.getElementById('renda-inp');
+  if(rendaInput) rendaInput.value=getMonthData().renda||'';
+  updateInvSub();
+}
+
 function renderMetrics(){
-  const md=getMonthData(), total=totalGasto();
+  const md=getMonthData(), total=totalGasto(), renda=md.renda||0, saldo=renda-total;
   document.getElementById('m-total').textContent=fmt(total);
+  document.getElementById('m-renda').textContent=fmt(renda);
+  document.getElementById('m-saldo').textContent=fmt(saldo);
+  document.getElementById('m-saldo').className='stat-val '+(saldo<0?'bad':'ok');
+  const pct=renda>0?Math.round(total/renda*100):0;
+  document.getElementById('m-pct').textContent=pct+'%';
+  document.getElementById('m-pct').className='stat-val '+(pct>100?'bad':pct>75?'warn':'ok');
+  document.getElementById('renda-main-inp').value=renda||'';
   
   let metaRestante = 0;
   let hasMeta = false;
@@ -1132,14 +1164,6 @@ function renderMetrics(){
       }).join('');
   }
 
-  document.getElementById('m-restante').textContent = fmt(metaRestante);
-  const mEl = document.getElementById('m-restante');
-  if (!hasMeta) {
-      mEl.className = 'stat-val';
-  } else {
-      mEl.className = 'stat-val ' + (metaRestante === 0 || estourouAlgo ? 'warn' : 'ok');
-  }
-  document.getElementById('m-invest').textContent = fmt(md.inv);
 }
 
 function renderTxList(containerId,limit){
@@ -1476,12 +1500,13 @@ function renderInv(){
   document.getElementById('inv-slider').value=md.inv||0;
   document.getElementById('inv-slider-val').textContent=fmt(md.inv);
   document.getElementById('inv-year').textContent=fmt(md.inv*12)+' / ano';
+  document.getElementById('renda-inp').value=md.renda||'';
   updateInvSub();renderInvHistory();
 }
 function updateInv(v){getMonthData().inv=+v;saveData();document.getElementById('inv-slider-val').textContent=fmt(v);document.getElementById('inv-inp').value=v;renderInv();}
 function updateInvInp(v){getMonthData().inv=+v||0;saveData();document.getElementById('inv-slider').value=Math.min(10000,+v||0);document.getElementById('inv-slider-val').textContent=fmt(+v||0);renderInv();}
 function updateInvSub(){
-  const md=getMonthData(), renda=+document.getElementById('renda-inp').value||0;
+  const md=getMonthData(), renda=md.renda||0;
   const pct=renda>0?Math.round(md.inv/renda*100):0;
   document.getElementById('inv-sub').textContent=renda>0?pct+'% da renda mensal':'Informe sua renda para ver a porcentagem';
   document.getElementById('inv-pct-label').textContent=pct+'%';
